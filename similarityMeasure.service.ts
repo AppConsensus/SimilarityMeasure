@@ -10,6 +10,9 @@ export class SimilarityMeasureService {
   _k = -1
   constructor() { }
 
+//k es la longitud del arreglo de individual
+//individual: [{id_atributo, suitable_value, unsuitable_value},...]
+//colectivo: [{id_atributo, suitable_value, unsuitable_value},...]
   public _getSimilarity(individual: any, colectivo: any, k: number) {
     this._k = k;
     let ret = 0;
@@ -26,7 +29,7 @@ export class SimilarityMeasureService {
     let  spotComparisons = this._getSpotComparisons(individual, colectiva);
 
     let sumAbs = 0;
-		let n = spotComparisons.length;
+    let n = spotComparisons.length;
     spotComparisons.forEach((sc:any) => {
       sumAbs += Math.abs(sc.difference);
     });
